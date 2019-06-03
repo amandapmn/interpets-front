@@ -45,6 +45,15 @@
             <q-item-label caption>Veja o status da sua inscrição</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable tag="a" target="_self" href="#/ConditionTerms">
+          <q-item-section avatar>
+            <q-icon name="message" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Termos de uso</q-item-label>
+            <q-item-label caption>Seus dados estão seguros</q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 

@@ -19,6 +19,7 @@
       <q-input
         filled
         type="text"
+        v-model="email"
         label="Seu email *"
         lazy-rules
         :rules="[
@@ -29,6 +30,7 @@
       <q-input
         filled
         type="text"
+        v-model="pet"
         label="Seu PET *"
         hint="Digite a sigla do seu PET"
         lazy-rules
@@ -36,7 +38,6 @@
           val => val !== null && val !== '' || 'Digite a sigla do seu PET'
         ]"
       />
-
       <q-toggle v-model="accept" label="Li e aceito os termos" />
 
       <div>
@@ -58,8 +59,8 @@ export default {
   data () {
     return {
       name: null,
-      age: null,
-
+      email: null,
+      pet: null,
       accept: false
     }
   },
@@ -74,23 +75,42 @@ export default {
           message: 'Você precisa aceitar os termos!'
         })
       } else {
-        this.$q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'fas fa-check-circle',
-          message: 'Submitted'
-        })
-        this.$axios.get('https://api.coindesk.com/v1/bpi/currentprice.json').then(response => {
-          console.log(response)
-        }).catch(e => {
-          console.log('fail')
+        this.$axios({
+          method: 'post',
+          url: '/api/petiano/',
+          data: {
+            nome: this.name,
+            email: this.email,
+            pet_sigla: this.pet,
+            pet_extenso: this.pet + 'UFSCar'
+          }
+        }).then(response => {
+          this.name = null
+          this.email = null
+          this.pet = null
+          this.accept = false
+          this.$q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'fas fa-check-circle',
+            message: 'Inscrição feita'
+          })
+        }).catch(error => {
+          console.log(error)
+          this.$q.notify({
+            color: 'red-4',
+            textColor: 'white',
+            icon: 'fas fa-check-circle',
+            message: error
+          })
         })
       }
     },
 
     onReset () {
       this.name = null
-      this.age = null
+      this.email = null
+      this.pet = null
       this.accept = false
     }
   }

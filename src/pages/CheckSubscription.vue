@@ -33,25 +33,28 @@
 export default {
   data () {
     return {
-      name: null,
-      age: null,
-
-      accept: false
+      name: null
     }
   },
 
   methods: {
     onSubmit () {
-      this.$q.notify({
-        color: 'green-4',
-        textColor: 'white',
-        icon: 'fas fa-check-circle',
-        message: 'Submitted'
-      })
-      this.$axios.get('https://api.coindesk.com/v1/bpi/currentprice.json').then(response => {
-        console.log(response)
+      this.$axios.get('/api/petiano/?email=' + this.name).then(response => {
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'done',
+          message: 'Você já está inscrito'
+        })
+        console.log(response.data)
       }).catch(e => {
-        console.log('fail')
+        this.$q.notify({
+          color: 'red-4',
+          textColor: 'white',
+          icon: 'error',
+          message: 'Erro, inscrição não encontrada'
+        })
+        console.log(e)
       })
     },
 
