@@ -115,6 +115,10 @@ export default {
           this.email = null
           this.pet = null
           this.accept = false
+          this.telefone = null
+          this.coffee = false
+          this.oficina = false
+          this.alimentacao = null
           this.$q.notify({
             color: 'green-4',
             textColor: 'white',
