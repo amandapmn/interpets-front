@@ -39,7 +39,7 @@ export default {
 
   methods: {
     onSubmit () {
-      this.$axios.get('/api/petiano/?email=' + this.name).then(response => {
+      this.$axios.get('https://interpets.petbcc.com.br/api/petiano/?email=' + this.name).then(response => {
         this.$q.notify({
           color: 'green-4',
           textColor: 'white',

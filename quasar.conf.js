@@ -27,6 +27,7 @@ module.exports = function (ctx) {
 
       components: [
         'QForm',
+        'QBtnToggle',
         'QInput',
         'QSelect',
         'QField',

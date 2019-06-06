@@ -27,6 +27,15 @@
     >
       <q-list>
         <q-item-label header>Inscreva-se</q-item-label>
+        <q-item clickable tag="a" target="_self" href="#/">
+          <q-item-section avatar>
+            <q-icon name="home" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Home</q-item-label>
+            <q-item-label caption>Página inicial</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable tag="a" target="_self" href="#/SignUp">
           <q-item-section avatar>
             <q-icon name="person_add" />
