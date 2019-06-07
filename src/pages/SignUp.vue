@@ -59,7 +59,7 @@
       <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
       <div>
         <q-btn label="Enviar" type="submit" color="primary"/>
-        <q-btn label="Fazer outra inscrição" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-btn label="Limpar" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
 
@@ -71,8 +71,8 @@
 </style>
 
 <script>
-
 export default {
+
   data () {
     return {
       telefone: null,
@@ -111,27 +111,19 @@ export default {
             restricao_alimentar: this.alimentacao
           }
         }).then(response => {
-          this.name = null
-          this.email = null
-          this.pet = null
-          this.accept = false
-          this.telefone = null
-          this.coffee = false
-          this.oficina = false
-          this.alimentacao = null
           this.$q.notify({
             color: 'green-4',
             textColor: 'white',
             icon: 'fas fa-check-circle',
             message: 'Inscrição feita'
           })
+          this.$router.push('/Happy')
         }).catch(error => {
-          console.log(error)
           this.$q.notify({
             color: 'red-4',
             textColor: 'white',
             icon: 'fas fa-check-circle',
-            message: error
+            message: error.response.data['email']
           })
         })
       }
