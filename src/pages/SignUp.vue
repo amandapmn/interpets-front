@@ -52,9 +52,8 @@
         :options="options"
         label="Você possui alguma restrição alimentar?"
       />
-      <q-toggle v-model="coffee" label="Estou ciente que o coffee possui o preço de 10R$" />
+      <q-toggle v-model="coffee" label="Estou ciente que o coffee possui o preço de 6R$" />
       <br>
-      <q-toggle v-model="oficina" label="Pretendo participar de oficinas que vão começar a partir das 16h" />
       <br>
       <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
       <div>
@@ -77,7 +76,6 @@ export default {
     return {
       telefone: null,
       coffee: null,
-      oficina: null,
       alimentacao: null,
       name: null,
       email: null,
@@ -107,7 +105,6 @@ export default {
             email: this.email,
             pet: this.pet,
             telefone: this.telefone,
-            oficina: this.oficina,
             restricao_alimentar: this.alimentacao
           }
         }).then(response => {
@@ -136,7 +133,6 @@ export default {
       this.accept = false
       this.telefone = null
       this.coffee = false
-      this.oficina = false
       this.alimentacao = null
     }
   }
