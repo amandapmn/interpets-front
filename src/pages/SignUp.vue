@@ -54,7 +54,6 @@
       />
       <q-toggle v-model="coffee" label="Estou ciente que o coffee possui o preço de 6R$" />
       <br>
-      <br>
       <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
       <div>
         <q-btn label="Enviar" type="submit" color="primary"/>
