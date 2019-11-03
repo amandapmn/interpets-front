@@ -52,7 +52,7 @@
         :options="options"
         label="Você possui alguma restrição alimentar?"
       />
-      <q-toggle v-model="coffee" label="Estou ciente que são dois coffees e possuem o preço de 12R$" />
+      <q-toggle v-model="coffee" label="Estou ciente de que a inscrição tem o valor de 12 reais referentes a dois coffees" />
       <br>
       <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
       <div>
