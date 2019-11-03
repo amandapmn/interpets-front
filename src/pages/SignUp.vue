@@ -35,24 +35,24 @@
         hint="Digite seu telefone"
         mask="(##) ##### - ####"
       />
-      <q-input
+
+      <q-select
         filled
-        type="text"
         v-model="pet"
-        label="Seu PET *"
-        hint="Digite o nome do seu PET como consta no SIGPET"
-        lazy-rules
+        :options="pets"
+        label="Selecione o seu PET"
         :rules="[
-          val => val !== null && val !== '' || 'Digite o nome do seu PET como consta no SIGPET'
+          val => val !== null && val !== '' || 'Selecione o seu PET'
         ]"
       />
+
       <q-select
         square filled
         v-model="alimentacao"
         :options="options"
         label="Você possui alguma restrição alimentar?"
       />
-      <q-toggle v-model="coffee" label="Estou ciente que o coffee possui o preço de 6R$" />
+      <q-toggle v-model="coffee" label="Estou ciente que são dois coffees e possuem o preço de 12R$" />
       <br>
       <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
       <div>
@@ -82,6 +82,27 @@ export default {
       accept: false,
       options: [
         'Vegetariano', 'Vegano', 'Nenhuma'
+      ],
+      pets: [
+        'PET Agroecologia',
+        'PET Ambiental',
+        'PET Biblioteconomia e Ciência da Informação',
+        'PET Biologia',
+        'PET Ciência da Computação',
+        'PET Economia Solidária',
+        'PET Engenharia Civil',
+        'PET Engenharia da Computação',
+        'PET Engenharia de Produção',
+        'PET Engenharia Química',
+        'PET Estatística',
+        'PET Indígenas',
+        'PET Licenciatura em Física',
+        'PET Matemática',
+        'PET Química (Araras)',
+        'PET Químnica (São Carlos)',
+        'PET Saúde',
+        'PET Usina de Reflexão',
+        'Outro'
       ]
     }
   },
