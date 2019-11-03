@@ -99,7 +99,7 @@ export default {
         'PET Licenciatura em Física',
         'PET Matemática',
         'PET Química (Araras)',
-        'PET Químnica (São Carlos)',
+        'PET Química (São Carlos)',
         'PET Saúde',
         'PET Usina de Reflexão',
         'Outro'
