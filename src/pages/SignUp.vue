@@ -46,14 +46,14 @@
         ]"
       />
 
-      <q-select
+    <!--  <q-select
         square filled
         v-model="alimentacao"
         :options="options"
         label="Você possui alguma restrição alimentar?"
       />
       <q-toggle v-model="coffee" label="Estou ciente de que a inscrição tem o valor de 12 reais referentes a dois coffees" />
-      <br>
+      <br> -->
       <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
       <div>
         <q-btn label="Enviar" type="submit" color="primary"/>

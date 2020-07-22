@@ -13,7 +13,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          Interpets 2019
+          Pré Sudeste 2020
         </q-toolbar-title>
 
         <div></div>
@@ -42,7 +42,7 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>Inscreva-se</q-item-label>
-            <q-item-label caption>no Interpets 2019</q-item-label>
+            <q-item-label caption>no Pré Sudeste 2020</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_self" href="#/CheckSubscription">
