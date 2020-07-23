@@ -39,14 +39,13 @@ export default {
 
   methods: {
     onSubmit () {
-      this.$axios.get('https://interpets.petbcc.com.br/api/petiano/?email=' + this.name).then(response => {
+      this.$axios.get('https://petbcc.ufscar.br/petufscar/api/petiano/?email=' + this.name).then(response => {
         this.$q.notify({
           color: 'green-4',
           textColor: 'white',
           icon: 'done',
           message: 'Você já está inscrito'
         })
-        console.log(response.data)
       }).catch(e => {
         this.$q.notify({
           color: 'red-4',
@@ -54,7 +53,6 @@ export default {
           icon: 'error',
           message: 'Erro, inscrição não encontrada'
         })
-        console.log(e)
       })
     },
 

@@ -119,7 +119,7 @@ export default {
       } else {
         this.$axios({
           method: 'post',
-          url: 'https://interpets.petbcc.com.br/api/petiano/',
+          url: 'https://petbcc.ufscar.br/petufscar/api/petiano/',
           data: {
             nome: this.name,
             email: this.email,
