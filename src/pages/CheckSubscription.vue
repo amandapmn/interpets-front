@@ -9,7 +9,7 @@
     >
       <q-input
         filled
-        v-model="name"
+        v-model="email"
         label="Seu email *"
         hint="Digite seu email"
         lazy-rules
@@ -20,6 +20,12 @@
         <q-btn label="Checar inscrição" type="submit" color="primary"/>
       </div>
     </q-form>
+
+    <div v-if="this.pessoa">
+      <h4>{{pessoa.nome}}</h4>
+      <h4>{{pessoa.pet}}</h4>
+      <h4 v-if="pessoa.gdt">GDT: {{pessoa.gdt}}</h4>
+    </div>
 
   </div>
   </q-page>
@@ -33,19 +39,21 @@
 export default {
   data () {
     return {
-      name: null
+      email: null,
+      pessoa: null
     }
   },
 
   methods: {
     onSubmit () {
-      this.$axios.get('https://petbcc.ufscar.br/petufscar/api/petiano/?email=' + this.name).then(response => {
+      this.$axios.get('https://petbcc.ufscar.br/petufscar/api/petiano/?email=' + this.email).then(response => {
         this.$q.notify({
           color: 'green-4',
           textColor: 'white',
           icon: 'done',
           message: 'Você já está inscrito'
         })
+        this.pessoa = response.data
       }).catch(e => {
         this.$q.notify({
           color: 'red-4',
@@ -54,12 +62,6 @@ export default {
           message: 'Erro, inscrição não encontrada'
         })
       })
-    },
-
-    onReset () {
-      this.name = null
-      this.age = null
-      this.accept = false
     }
   }
 }
