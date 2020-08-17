@@ -46,6 +46,19 @@
         ]"
       />
 
+      <q-select
+        filled
+        v-model="gdt"
+        emit-value
+        option-value="id"
+        option-label="nome"
+        label="GDT"
+        :options="gdts"
+        :rules="[
+          val => val !== null && val !== '' || 'Escolha um GDT'
+        ]"
+      />
+
     <!--  <q-select
         square filled
         v-model="alimentacao"
@@ -74,15 +87,15 @@ export default {
   data () {
     return {
       telefone: null,
-      coffee: null,
-      alimentacao: null,
+      // coffee: null,
+      // alimentacao: null,
       name: null,
       email: null,
       pet: null,
       accept: false,
-      options: [
+      /* options: [
         'Vegetariano', 'Vegano', 'Nenhuma'
-      ],
+      ], */
       pets: [
         'PET Agroecologia',
         'PET Ambiental',
@@ -103,18 +116,28 @@ export default {
         'PET Saúde',
         'PET Usina de Reflexão',
         'Outro'
-      ]
+      ],
+      gdts: [],
+      gdt: null
     }
   },
 
+  created () {
+    this.$axios.get('https://petbcc.ufscar.br/petufscar/api/gdt_disp/')
+      .then(res => {
+        this.gdts = res.data
+      })
+  },
+
   methods: {
+
     onSubmit () {
-      if (this.accept !== true || this.coffee !== true) {
+      if (this.accept !== true) {
         this.$q.notify({
           color: 'red-5',
           textColor: 'white',
           icon: 'fas fa-exclamation-triangle',
-          message: 'Você precisa aceitar estar ciente sobre o coffee e termos de uso!'
+          message: 'Você precisa aceitar estar ciente sobre os termos de uso!'
         })
       } else {
         this.$axios({
@@ -125,7 +148,8 @@ export default {
             email: this.email,
             pet: this.pet,
             telefone: this.telefone,
-            restricao_alimentar: this.alimentacao
+            gdt: this.gdt
+            // restricao_alimentar: this.alimentacao
           }
         }).then(response => {
           this.$q.notify({
@@ -152,8 +176,9 @@ export default {
       this.pet = null
       this.accept = false
       this.telefone = null
-      this.coffee = false
-      this.alimentacao = null
+      this.gdt = null
+      // this.coffee = false
+      // this.alimentacao = null
     }
   }
 }

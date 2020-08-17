@@ -63,6 +63,8 @@ module.exports = function (ctx) {
 
     supportIE: true,
 
+    preFetch: true,
+
     build: {
       scopeHoisting: true,
       // vueRouterMode: 'history',
