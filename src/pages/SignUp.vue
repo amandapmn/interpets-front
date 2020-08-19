@@ -50,6 +50,7 @@
         filled
         v-model="gdt"
         emit-value
+        map-options
         option-value="id"
         option-label="nome"
         label="GDT"
