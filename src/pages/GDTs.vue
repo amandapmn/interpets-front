@@ -4,6 +4,9 @@
     <div v-for="gdt in gdts" :key="gdt.id" class="row texto">
       <div class="col">
         <h5>{{ gdt.nome }}</h5>
+        <h6 v-if="gdt.quantidade_vagas > 1">{{ gdt.quantidade_vagas }} vagas disponíveis</h6>
+        <h6 v-if="gdt.quantidade_vagas === 1">{{ gdt.quantidade_vagas }} vaga disponível</h6>
+        <h6 v-if="gdt.quantidade_vagas === 0" class="red">Esgotado</h6>
         <p>{{ gdt.descricao }}</p>
       </div>
     </div>
@@ -17,8 +20,21 @@
   border-width: medium;
   border-color: black;
 }
+
 h5 {
     font-weight: 500;
+    margin-block-end: 0;
+}
+
+h6 {
+  font-weight: 400;
+  font-size: 17px;
+  color: #000a;
+  margin-block-start: 0;
+}
+
+.red {
+  color: #f00c;
 }
 </style>
 
