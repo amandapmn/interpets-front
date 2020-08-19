@@ -4,7 +4,6 @@
 
     <q-form
       @submit="onSubmit"
-      @reset="onReset"
       class="q-gutter-md"
     >
       <q-input
@@ -22,9 +21,30 @@
     </q-form>
 
     <div v-if="this.pessoa">
-      <h4>{{pessoa.nome}}</h4>
-      <h4>{{pessoa.pet}}</h4>
-      <h4 v-if="pessoa.gdt">GDT: {{pessoa.gdt}}</h4>
+      <div class="row justify-center q-ma-md q-mt-lg">
+        <div class="col-12 col-md-2 text-weight-bold">
+          <p>Nome:</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p>{{pessoa.nome}}</p>
+        </div>
+      </div>
+      <div class="row justify-center q-ma-md">
+        <div class="col-12 col-md-2 text-weight-bold">
+          <p>Grupo:</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p>{{pessoa.pet}}</p>
+        </div>
+      </div>
+      <div class="row justify-center q-ma-md">
+        <div class="col-12 col-md-2 text-weight-bold">
+          <p>GDT:</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p>{{pessoa.gdt.nome}}</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -32,6 +52,12 @@
 </template>
 
 <style>
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0.2rem 0;
+  font-size: 18px;
+}
 </style>
 
 <script>
