@@ -7,7 +7,7 @@
         <h6 v-if="gdt.quantidade_vagas > 1">{{ gdt.quantidade_vagas }} vagas disponíveis</h6>
         <h6 v-if="gdt.quantidade_vagas === 1">{{ gdt.quantidade_vagas }} vaga disponível</h6>
         <h6 v-if="gdt.quantidade_vagas === 0" class="red">Esgotado</h6>
-        <p>{{ gdt.descricao }}</p>
+        <div v-html="gdt.descricao"></div>
       </div>
     </div>
   </q-page>
