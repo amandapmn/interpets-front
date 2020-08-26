@@ -1,77 +1,76 @@
 <template>
-  <q-page class="flex-center">
-    <div class="q-pa-md">
+  <q-page class='flex-center'>
+    <div class='q-pa-md'>
 
     <q-form
-      @submit="onSubmit"
-      @reset="onReset"
-      class="q-gutter-md"
+      @submit='onSubmit'
+      @reset='onReset'
+      class='q-gutter-md'
     >
       <q-input
         filled
-        v-model="name"
-        label="Seu nome *"
-        hint="Seu primeiro e segundo nome"
+        v-model='name'
+        label='Seu nome *'
+        hint='Nome completo'
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Por favor digite seu nome']"
+        :rules='[ val => val && val.length > 0 || "Por favor, digite seu nome"]'
       />
 
       <q-input
         filled
-        type="text"
-        v-model="email"
-        label="Seu email *"
-        hint="Usado para enviar avisos, caso seja necessário"
+        type='text'
+        v-model='email'
+        label='Seu email *'
+        hint='Usado para enviar avisos e links'
         lazy-rules
-        :rules="[
-          val => val !== null && val !== '' || 'Por favor digite seu email'
-        ]"
+        :rules='[
+          val => val !== null && val !== "" || "Por favor, digite seu email"
+        ]'
       />
       <q-input
         filled
-        type="text"
-        v-model="telefone"
-        label="Seu telefone"
-        hint="Digite seu telefone"
-        mask="(##) ##### - ####"
+        type='text'
+        v-model='telefone'
+        label='Seu telefone'
+        hint='Digite seu telefone'
+        mask='(##) ##### - ####'
       />
 
       <q-select
         filled
-        v-model="pet"
-        :options="pets"
-        label="Selecione o seu PET"
-        :rules="[
-          val => val !== null && val !== '' || 'Selecione o seu PET'
-        ]"
+        v-model='pet'
+        :options='pets'
+        label='Selecione o seu PET *'
+        :rules='[
+          val => val !== null && val !== "" || "É obrigatório informar seu PET"
+        ]'
       />
 
       <q-select
         filled
-        v-model="gdt"
+        clearable
+        v-model='gdt'
         emit-value
         map-options
-        option-value="id"
-        option-label="nome"
-        label="GDT"
-        :options="gdts"
-        :rules="[
-          val => val !== null && val !== '' || 'Escolha um GDT'
-        ]"
+        option-value='id'
+        option-label='nome'
+        label='Selecione o GDT que deseja participar'
+        hint='Não obrigatório'
+        :options='gdts'
       />
 
     <!--  <q-select
         square filled
-        v-model="alimentacao"
-        :options="options"
-        label="Você possui alguma restrição alimentar?"
+        v-model='alimentacao'
+        :options='options'
+        label='Você possui alguma restrição alimentar?'
       />
-      <q-toggle v-model="coffee" label="Estou ciente de que a inscrição tem o valor de 12 reais referentes a dois coffees" />
+      <q-toggle v-model='coffee' label='Estou ciente de que a inscrição tem o valor de 12 reais referentes a dois coffees' />
       <br> -->
-      <q-toggle v-model="accept" label="Li e aceito os termos de uso" />
+      <q-toggle v-model='accept' label='Li e aceito os termos de uso' />
       <div>
-        <q-btn label="Enviar" type="submit" color="primary"/>
-        <q-btn label="Limpar" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-btn label='Enviar' type='submit' color='primary'/>
+        <q-btn label='Limpar' type='reset' color='primary' flat class='q-ml-sm' />
       </div>
     </q-form>
 
