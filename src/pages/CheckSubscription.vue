@@ -37,12 +37,20 @@
           <p>{{pessoa.pet}}</p>
         </div>
       </div>
-      <div class="row justify-center q-ma-md">
+      <div v-if="this.pessoa.gdt" class="row justify-center q-ma-md">
         <div class="col-12 col-md-2 text-weight-bold">
           <p>GDT:</p>
         </div>
         <div class="col-12 col-md-4">
           <p>{{pessoa.gdt.nome}}</p>
+        </div>
+      </div>
+      <div v-if="this.pessoa.gdt" class="row justify-center q-ma-md">
+        <div class="col-12 col-md-2 text-weight-bold">
+          <p v-if="this.pessoa.gdt.link">Link:</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p v-if="this.pessoa.gdt.link"><a :href="pessoa.gdt.link" target="_blank">{{pessoa.gdt.link}}</a></p>
         </div>
       </div>
     </div>
@@ -57,6 +65,17 @@ p {
   margin-block-end: 0;
   margin: 0.2rem 0;
   font-size: 18px;
+}
+
+.col-md-4 a {
+  color: var(--q-color-negative);
+  text-decoration: none;
+}
+
+.col-md-4 a:hover, .col-md-4 a:focus {
+  color: var(--q-color-info);
+  text-decoration: none;
+  outline: none;
 }
 </style>
 
