@@ -13,7 +13,7 @@
         </q-btn>
 
         <q-toolbar-title>
-          Pré-Sudeste 2020
+          Pré-Sudeste 2021
         </q-toolbar-title>
 
         <div></div>
@@ -26,7 +26,7 @@
       content-class="bg-grey-2"
     >
       <q-list>
-        <q-item-label header>Pré-Sudeste 2020</q-item-label>
+        <q-item-label header>Pré-Sudeste 2021</q-item-label>
         <q-item clickable tag="a" target="_self" href="#/">
           <q-item-section avatar>
             <q-icon name="home" />
@@ -51,7 +51,7 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>Inscreva-se</q-item-label>
-            <q-item-label caption>no Pré-Sudeste 2020</q-item-label>
+            <q-item-label caption>no Pré-Sudeste 2021</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_self" href="#/CheckSubscription">
