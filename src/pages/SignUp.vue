@@ -59,13 +59,23 @@
         :options='gdts'
       />
 
-    <!--  <q-select
+    <q-select
         square filled
-        v-model='alimentacao'
+        v-model='acessibilidade'
         :options='options'
-        label='Você possui alguma restrição alimentar?'
+        label='Você possui alguma necessidade específica para sua participação no evento?'
+        hint='Obs: Contaremos com a participação de um intérprete de Libras da SeTILS durante todo o evento'
+        :rules='[
+          val => val !== null && val !== "" || "Esta pergunta é obrigatória."
+        ]' 
       />
-      <q-toggle v-model='coffee' label='Estou ciente de que a inscrição tem o valor de 12 reais referentes a dois coffees' />
+      <q-input
+        filled
+        type='text'
+        v-model='des_acess'
+        label='Se sim, qual(is) e como podemos tornar o evento mais acessível para você?'
+      />
+      <!--  <q-toggle v-model='coffee' label='Estou ciente de que a inscrição tem o valor de 12 reais referentes a dois coffees' />
       <br> -->
       <q-toggle v-model='accept' label='Li e aceito os termos de uso' />
       <div>
@@ -88,14 +98,14 @@ export default {
     return {
       telefone: null,
       // coffee: null,
-      // alimentacao: null,
+      acessibilidade: null,
       name: null,
       email: null,
       pet: null,
       accept: false,
-      /* options: [
-        'Vegetariano', 'Vegano', 'Nenhuma'
-      ], */
+      options: [
+        'Sim', 'Não'
+      ],
       pets: [
         'PET Agroecologia',
         'PET Ambiental',
@@ -119,6 +129,7 @@ export default {
       ],
       gdts: [],
       gdt: null
+      des_acess: null
     }
   },
 
@@ -149,7 +160,8 @@ export default {
             pet: this.pet,
             telefone: this.telefone,
             gdt: this.gdt
-            // restricao_alimentar: this.alimentacao
+            acessibilidade: this.acessibilidade
+            des_acess: this.des_acess
           }
         }).then(response => {
           this.$q.notify({
@@ -178,7 +190,8 @@ export default {
       this.telefone = null
       this.gdt = null
       // this.coffee = false
-      // this.alimentacao = null
+      this.acessibilidade = null
+      this.des_acess = null
     }
   }
 }
